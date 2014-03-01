@@ -29,23 +29,21 @@ app.configure(function() {
 	app.set('view engine', 'ejs'); // set up ejs for templating
 
 	// required for passport
-	app.use(express.session({ secret: 'bhsf972929nbkdsajvn8332498720243bkv' })); // session secret
+	app.use(express.session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
 	app.use(passport.initialize());
 	app.use(passport.session()); // persistent login sessions
 	app.use(flash()); // use connect-flash for flash messages stored in session
 
 });
 
-/*
+
 var Schema = new mongoose.Schema({
 	id : Number,
 	name : String,
-	email: String,
 	reason : String
 });
 
 var user = mongoose.model('emp',Schema);
-/*
 app.post('/new',function(req,res){
 	new user({
 		id: req.body.empID,
@@ -59,27 +57,8 @@ app.post('/new',function(req,res){
 			else res.redirect("https://www.google.com");
 	});
 });
-*/
 
-app.post('/new',function(req,res){
-	
-	var user            = req.user;
-	
-	user.local.email    = req.user.local.email;
-	user.local.password    = req.user.local.password;
 
-	user.local.id       = req.body.empID;
-	user.local.fullName    = req.body.name;
-	user.local.reason    = req.body.reason;
-	
-	user.save(function(err) {
-		if(err) {
-			console.log(err);
-		}
-		else res.redirect('https://www.google.com');
-		});
-	
-});
 
 
 // routes ======================================================================

@@ -36,15 +36,16 @@ app.configure(function() {
 
 });
 
-/*
+
 var Schema = new mongoose.Schema({
 	id : Number,
 	name : String,
 	email: String,
-	reason : String
+	reason : String,
+	dateTime: Date
 });
 
-var user = mongoose.model('emp',Schema);
+var userActivity = mongoose.model('empActivity',Schema);
 /*
 app.post('/new',function(req,res){
 	new user({
@@ -71,13 +72,39 @@ app.post('/new',function(req,res){
 	user.local.id       = req.body.empID;
 	user.local.fullName    = req.body.name;
 	user.local.reason    = req.body.reason;
+	user.local.dateLastVisit = new Date();
+	
+	new userActivity({
+		id      : req.body.empID,
+		name    : req.body.name,
+		email   : req.user.local.email,
+		reason  : req.body.reason,
+		dateTime : new Date()
+		
+	}).save(function(err, doc){
+			if(err) {
+			console.log(err);
+			res.end("There is some system error");
+			}
+			else {
+				console.log("Successful" + doc);
+				console.log(new Date());
+				}
+				
+	});
 	
 	user.save(function(err) {
 		if(err) {
 			console.log(err);
 		}
-		else res.redirect('https://www.google.com');
+		else {
+			req.logout();
+			res.redirect('https://www.google.com');
+			}
 		});
+		
+	
+	
 	
 });
 

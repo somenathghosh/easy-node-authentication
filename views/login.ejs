@@ -26,6 +26,26 @@
 				alert("Username is mandatory.");
 				return false;
 			}
+			else
+			{	
+				
+				var atpos=email.indexOf("@");
+				var dotpos=email.lastIndexOf(".");
+				if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length)
+				 {
+				  alert("Not a valid e-mail address");
+				  return false;
+				 }
+				else {
+					var str = email.substring(atpos+1);
+					if (str.toLowerCase() != "tcs.com")
+					{
+						alert("Not a valid tcs e-mail address");
+						return false;
+					}
+				}
+			}
+			
 			/* Check for NULL Password */
 			
 			if ( pass == null || trim(pass) == "")
@@ -59,6 +79,8 @@
 			 
 			 return true;
 			}
+			
+			
         }
 		/*
 		function myFunction(e)

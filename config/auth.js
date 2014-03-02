@@ -4,9 +4,9 @@
 module.exports = {
 
 	'facebookAuth' : {
-		'clientID' 		: '270304303137309', // your App ID
-		'clientSecret' 	: '8e43a8453026c3cf52592e2abe9909ef', // your App Secret
-		'callbackURL' 	: 'http://afternoon-brushlands-5477.herokuapp.com/auth/facebook/callback'
+		'clientID' 		: '1431347600437646', // your App ID
+		'clientSecret' 	: '4669a459251b3b6d1443bc75eca423c7', // your App Secret
+		'callbackURL' 	: 'http://localhost:8080/auth/facebook/callback'
 	},
 
 	'twitterAuth' : {

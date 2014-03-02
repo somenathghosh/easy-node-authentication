@@ -98,9 +98,12 @@ app.post('/new',function(req,res){
 			console.log(err);
 		}
 		else {
+			req.session.destroy();
 			req.logout();
-			res.redirect('https://www.google.com');
-			}
+			//res.redirect('https://www.google.com');
+			res.render('about.ejs');
+		}
+			
 		});
 		
 	

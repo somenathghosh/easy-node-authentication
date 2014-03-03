@@ -34,6 +34,16 @@ module.exports = function(app, passport) {
 		app.get('/login', function(req, res) {
 			res.render('login.ejs', { message: req.flash('loginMessage') });
 		});
+		
+		app.get('/forgotPassword', function(req, res) {
+			res.render('forgotPassword.ejs', { message: req.flash('loginMessage') });
+		});
+
+		/*
+		app.get('/passWordRetriv', function(req, res) {
+			res.render('passwordRetriv.ejs', { message: req.flash('loginMessage') });
+		});
+		*/
 
 		// process the login form
 		app.post('/login', passport.authenticate('local-login', {
@@ -41,7 +51,21 @@ module.exports = function(app, passport) {
 			failureRedirect : '/login', // redirect back to the signup page if there is an error
 			failureFlash : true // allow flash messages
 		}));
-
+		
+		
+		// process the password Retrieval form
+		/*
+		app.post('/retrivePassword', passport.authenticate('local-login', {
+			successRedirect : '/passWordRetriv', // redirect to the secure profile section
+			failureRedirect : '/passWordRetriv', // redirect back to the forgotPassword page if there is an error
+			failureFlash : true // allow flash messages
+		}));
+		
+		*/
+		
+			
+	
+	
 		// SIGNUP =================================
 		// show the signup form
 		app.get('/signup', function(req, res) {

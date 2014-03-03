@@ -101,7 +101,7 @@ app.post('/new',function(req,res){
 			req.session.destroy();
 			req.logout();
 			//res.redirect('https://www.google.com');
-			res.render('about.ejs');
+			res.render('Thanks.ejs');
 		}
 			
 		});
@@ -110,6 +110,35 @@ app.post('/new',function(req,res){
 	
 	
 });
+
+var User       = require('./app/models/user');
+var email;
+app.post('/retrivePassword',function(req,res){
+	email = req.body.email;
+	//console.log(email);
+	res.redirect('/viewPassword');
+});
+
+app.get('/viewPassword',function(req,res){
+	//console.log("email1=" + email);
+	User.findOne({ 'local.email' :  email }, function(err, user) {
+	if (err)
+        res.json(err);
+
+    // if no user is found, return the message
+    if (!user)
+        req.flash('loginMessage', 'No user found.');
+	else
+	{
+		//console.log(user);
+		req.session.destroy();
+		req.logout();
+		res.render('passwordRetriv.ejs',{Users : user});
+		}
+	});
+});
+	
+
 
 
 // routes ======================================================================

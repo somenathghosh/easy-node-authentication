@@ -40,7 +40,7 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, email, password, done) {
-
+		console.log(email);
         // asynchronous
         process.nextTick(function() {
             User.findOne({ 'local.email' :  email }, function(err, user) {
@@ -64,12 +64,6 @@ module.exports = function(passport) {
     }));
 	
 	
-	
-	
-	
-	
-	
-	
 
     // =========================================================================
     // LOCAL SIGNUP ============================================================
@@ -83,11 +77,11 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, email, password, done) {
-
+		console.log(email);
         // asynchronous
         process.nextTick(function() {
             // check if the user is already logged ina
-            if (!req.user) {
+            //if (!req.user) {
                 User.findOne({ 'local.email' :  email }, function(err, user) {
                     // if there are any errors, return the error
                     if (err)
@@ -95,7 +89,7 @@ module.exports = function(passport) {
 
                     // check to see if theres already a user with that email
                     if (user) {
-                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                        return done(null, false, req.flash('signupMessage', 'You are already singed Up'));
                     } else {
 
                         // create the user
@@ -114,8 +108,8 @@ module.exports = function(passport) {
                     }
 
                 });
-            } else {
-
+            //} else {
+/*
                 var user            = req.user;
 				
                 user.local.email    = email;
@@ -127,8 +121,8 @@ module.exports = function(passport) {
                     return done(null, user);
                 });
 
-            }
-
+            //}
+*/
         });
 
     }));

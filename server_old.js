@@ -36,10 +36,11 @@ app.configure(function() {
 
 });
 
-
+/*
 var Schema = new mongoose.Schema({
 	id : Number,
 	name : String,
+	email: String,
 	reason : String,
 	dateTime: Date
 });
@@ -60,7 +61,7 @@ app.post('/new',function(req,res){
 	});
 });
 */
-
+/*
 app.post('/new',function(req,res){
 	
 	var user            = req.user;
@@ -68,7 +69,7 @@ app.post('/new',function(req,res){
 	user.local.email    = req.user.local.email;
 	user.local.password    = req.user.local.password;
 
-	
+	user.local.id       = req.body.empID;
 	user.local.fullName    = req.body.name;
 	user.local.reason    = req.body.reason;
 	user.local.dateLastVisit = new Date();
@@ -76,7 +77,7 @@ app.post('/new',function(req,res){
 	new userActivity({
 		id      : req.body.empID,
 		name    : req.body.name,
-		//email   : req.user.local.email,
+		email   : req.user.local.email,
 		reason  : req.body.reason,
 		dateTime : new Date()
 		
@@ -110,8 +111,6 @@ app.post('/new',function(req,res){
 	
 });
 
-
-
 var User       = require('./app/models/user');
 var email;
 app.post('/retrivePassword',function(req,res){
@@ -138,7 +137,11 @@ app.get('/viewPassword',function(req,res){
 		}
 	});
 });
-	
+*/
+
+app.post('/reservation',function(req,res){
+	res.render("login.ejs");
+});
 
 
 

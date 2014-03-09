@@ -15,37 +15,9 @@
           rel="stylesheet" type="text/css">
     <style type="text/css">
 
-      /* Large desktop */
-      @media (min-width: 980px) { 
-        body {
-         padding-top: 60px;
-        }
-       .linediv-l {
-         border-right: 1px white solid;
-        }
-       .linediv-r {
-         border-left: 1px white solid;
-       }
-      }
-
-      /* Landscape phones and down */
-      @media (max-width: 480px) { 
-       .copy {
-         padding: 2.5% 10%;
-       }
-       .linediv-l {
-         border-bottom: 1px white solid;
-       }
-       .linediv-r {
-         border-top: 1px white solid;
-       }
-      }
-
-      /* All form factors */
-
-      /* Main body and headings */
       body{
         font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+		background-color: #090448;
       }
       .heading, .subheading {
         font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
@@ -99,13 +71,21 @@
         color: #ccccff;
       }
 	  
-	  .resizedTextbox {width: 221px; height: 100px ;  padding: 1px}
+	.resizedTextbox {width: 221px; height: 100px ;  padding: 1px}
+	  
+	.logoutLblPos{
+
+	   position:absolute;
+	   right:0px;
+	   top:0px;
+	}
+	
     </style>
   </head>
   <body>
 
     <!-- Mobile-friendly navbar adapted from example. -->
-    <!-- http://twitter.github.io/bootstrap/examples/starter-template.html -->
+    <!-- http://twitter.github.io/bootstrap/examples/starter-template.html 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -121,16 +101,18 @@
               
 			  
             </ul>
-          </div><!--/.nav-collapse -->
+          </div><!--/.nav-collapse 
         </div>
       </div>
     </div>
-
-   
+	-->
+	<label class="logoutLblPos">
+		<a style="float:right; margin-right:0px;" href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</label>
 		
-		<center><h1> Thanks for registering yourself...!!!</h1></center>
+	<center><h1><font color="white">Thanks for registering yourself...!!!</font></h1></center>
      
-		    
+	  
 
       
   </body>

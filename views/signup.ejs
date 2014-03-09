@@ -5,27 +5,24 @@
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 	<style>
-		body 		{ padding-top:80px; }
+		body 		{ 
+		background-color: #090448;
+		padding-top:80px; }
 	</style>
 	
 	<script>
 		function validateForm()
 		{
 		var x=document.forms["myForm"]["email"].value;
-		var atpos=x.indexOf("@");
-		var dotpos=x.lastIndexOf(".");
-		if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
-		  {
-		  alert("Not a valid e-mail address");
-		  return false;
-		  }
-		else {
-			var str = x.substring(atpos+1);
-			if (str.toLowerCase() != "tcs.com")
-			{
-				alert("Not a valid tcs e-mail address");
-				return false;
-			}
+		var p=document.forms["myForm"]["password"].value;
+		if(x<99999){
+			alert("Enter a valid Employee ID");
+			return false;
+		}
+		if(p==""){
+			alert("Password Can not be empty");
+			return false;
+			
 		}
 		
 		}
@@ -36,7 +33,7 @@
 <div class="container">
 <div class="col-sm-6 col-sm-offset-3">
 
-	<h1><span class="fa fa-sign-in"></span> Signup</h1>
+	<h1><font color="white"><span class="fa fa-sign-in"></span> Signup</font></h1>
 
 	<% if (message.length > 0) { %>
 		<div class="alert alert-danger"><%= message %></div>
@@ -47,23 +44,23 @@
 		
 		
 		<div class="form-group">
-			<label> TCS Email(User ID) </label>
-			<input type="email" id="email" class="form-control" name="email" required>
+			<label><font color="white"> TCS Emp ID(User ID)</font> </label>
+			<input type="Number" id="email" class="form-control" name="email" required>
 		</div>
 		
 		
 		<div class="form-group">
-			<label>Password</label>
+			<label><font color="white">Password</font></label>
 			<input type="password" class="form-control" name="password">
 		</div>
 
-		<button type="submit" class="btn btn-warning btn-lg">Signup</button>
+		<button type="submit" class="btn btn-warning btn-lg"><font color="white">Signup</font></button>
 	</form>
 
 	<hr>
 
-	<p>Already have an account? <a href="/login">Login</a></p>
-	<p>Or go <a href="/">home</a>.</p>
+	<p><font color="white">Already have an account? </font><a href="/login"><font color="yellow">Login</font></a></p>
+	<p><font color="white">Or go </font><a href="/"><font color="Orange">home</font></a>.</p>
 
 	
 
